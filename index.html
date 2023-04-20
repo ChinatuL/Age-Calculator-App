@@ -12,6 +12,60 @@
         <title>Frontend Mentor | Age calculator app</title>
     </head>
     <body>
-    
+        <main>
+            <div class="calculator">
+                <form action="" class="calculator__form">
+                    <div class="calculator-form-group">
+                        <label for="day" class="calculator__form-label"
+                            >Day</label
+                        >
+                        <input
+                            type="number"
+                            id="day"
+                            name="day"
+                            placeholder="DD"
+                            class="calculator__form-input"
+                        />
+                        <p class="calculator__form-error"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="month">Month</label>
+                        <input
+                            type="number"
+                            id="month"
+                            name="month"
+                            placeholder="MM"
+                            class="calculator__form-input"
+                        />
+                        <p class="calculator__form-error"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input
+                            type="number"
+                            id="year"
+                            name="year"
+                            placeholder="YYYY"
+                            class="calculator__form-input"
+                        />
+                        <p class="calculator__form-error"></p>
+                    </div>
+                    <button type="submit" aria-label="Submit">
+                        <img src="./assets/images/icon-arrow.svg" alt="" />
+                    </button>
+                </form>
+                <div class="calculator__result">
+                    <p class="calculator__result-years">
+                        <span id="year-result">- -</span> years
+                    </p>
+                    <p class="calculator__result-months">
+                        <span id="month-result">- -</span> months
+                    </p>
+                    <p class="calculator__result-days">
+                        <span id="day-result">- -</span> days
+                    </p>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
