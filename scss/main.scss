@@ -1,0 +1,112 @@
+@import "resets";
+
+body {
+    @include flex(column);
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: $light-grey;
+}
+
+.calculator {
+    padding: 4rem 3rem;
+    background-color: $white;
+    border-radius: 1.5rem 1.5rem 10rem 1.5rem;
+
+    &__form {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid $light-grey;
+
+        &-group {
+            @include flex(column);
+        }
+
+        &-label {
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.2rem;
+            color: $smokey-grey;
+        }
+
+        &-input {
+            border: 1px solid $light-grey;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            width: 9.5rem;
+            font: 700 2rem "Poppins", sans-serif;
+            color: $off-black;
+            cursor: pointer;
+        }
+
+        &-input::placeholder {
+            color: $smokey-grey;
+            font: 700 2rem "Poppins", sans-serif;
+        }
+
+        &-input:focus {
+            border: 1px solid $purple;
+            outline: none;
+            caret-color: $purple;
+        }
+
+        &-input::-webkit-outer-spin-button,
+        &-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        &-btn {
+            position: absolute;
+            right: 0;
+            bottom: -2.5rem;
+            width: 6rem;
+            height: 6rem;
+            border: none;
+            background-color: $purple;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+
+            & > img {
+                width: 50%;
+                height: 50%;
+            }
+
+            &:hover {
+                background-color: $off-black;
+            }
+        }
+
+        &-error {
+            display: none;
+            font-size: 0.8rem;
+            font-weight: 400;
+            font-style: italic;
+            color: $light-red;
+        }
+    }
+
+    &__result {
+        padding-top: 2rem;
+
+        &-value {
+            font-size: 5rem;
+            font-style: italic;
+            font-weight: 800;
+            line-height: 1;
+
+            & > span {
+                color: $purple;
+            }
+        }
+    }
+}
