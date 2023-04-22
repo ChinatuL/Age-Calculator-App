@@ -110,3 +110,61 @@ body {
         }
     }
 }
+
+@media (max-width: 1000px) {
+    .calculator {
+        width: 90%;
+        margin: auto;
+        border-radius: 1.5rem 1.5rem 7rem 1.5rem;
+
+        &__form {
+            gap: 1rem;
+
+            &-input {
+                padding: 1rem;
+                width: 7rem;
+                font-size: 1.5rem;
+
+                &::placeholder {
+                    font-size: 1.5rem;
+                }
+            }
+
+            &-btn {
+                right: 45%;
+                bottom: -2rem;
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+
+        &__result {
+            &-value {
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .calculator {
+        padding: 4rem 1.5rem;
+
+        &__form {
+
+            &-input {
+                width: 5.5rem;
+                padding: 1rem 0 1rem 1rem;
+                font-size: 1.2rem;
+
+                &::placeholder {
+                    font-size: 1.2rem;
+                }
+            }
+
+            &-btn {
+                right: 40%;
+            }
+        }
+    }
+}
