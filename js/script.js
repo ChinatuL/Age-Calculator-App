@@ -53,39 +53,6 @@ yearInput.addEventListener("input", () => {
     }
 });
 
-// general form validation function
-const isFormValid = () => {
-    if (
-        (monthInput.value == 4 && dayInput.value > 30) ||
-        (monthInput.value == 6 && dayInput.value > 30) ||
-        (monthInput.value == 09 && dayInput.value > 30) ||
-        (monthInput.value == 11 && dayInput.value > 30)
-    ) {
-        formError.classList.add("show-form-error");
-        formError.innerHTML = "Must be a valid date";
-        form.setAttribute("aria-invalid", true);
-        formInputs.forEach((input) => {
-            input.classList.add("input-error");
-            console.log(input);
-        });
-        formLabels.forEach((label) => {
-            label.classList.add("label-error");
-        });
-        return false;
-    } else {
-        formError.classList.remove("show-form-error");
-        formError.innerHTML = "";
-        form.setAttribute("aria-invalid", false);
-        formInputs.forEach((input) => {
-            input.classList.remove("input-error");
-        });
-        formLabels.forEach((label) => {
-            label.classList.remove("label-error");
-        });
-        return true;
-    }
-};
-
 // check if input fields are empty
 const isDayRequired = () => {
     if (!dayInput.value.trim()) {
@@ -117,6 +84,26 @@ const isYearRequired = () => {
     }
 };
 
+// general form validation function
+const isFormValid = () => {
+    if (
+        (monthInput.value == 4 && dayInput.value > 30) ||
+        (monthInput.value == 6 && dayInput.value > 30) ||
+        (monthInput.value == 09 && dayInput.value > 30) ||
+        (monthInput.value == 11 && dayInput.value > 30)
+    ) {
+        formError.classList.add("show-form-error");
+        formError.innerHTML = "Must be a valid date";
+        form.setAttribute("aria-invalid", true);
+        return false;
+    } else {
+        formError.classList.remove("show-form-error");
+        formError.innerHTML = "";
+        form.setAttribute("aria-invalid", false);
+        return true;
+    }
+};
+
 // age calculator function
 const calculateAge = () => {
     const day = dayInput.value;
@@ -127,10 +114,8 @@ const calculateAge = () => {
     const birthDate = dayjs(age);
 
     const yearDifference = now.diff(birthDate, "year");
-    yearResult.textContent = yearDifference;
 
     const monthDifference = now.diff(birthDate, "month") - 12 * yearDifference;
-    monthResult.textContent = monthDifference;
 
     let dayDifference = 0;
     if (day <= now.date()) {
@@ -138,7 +123,52 @@ const calculateAge = () => {
     } else {
         dayDifference = now.daysInMonth() + now.date() - day;
     }
-    dayResult.textContent = dayDifference;
+
+    // result animation
+    const displayAgeYear = () => {
+        let yearCount = 0;
+        let interval = setInterval(() => {
+            yearCount++;
+            yearResult.innerHTML = yearCount;
+            if (yearCount == yearDifference) {
+                clearInterval(interval);
+            }
+        }, 50);
+    };
+
+    const displayAgeMonth = () => {
+        let monthCount = 0;
+        if (monthDifference == 0) {
+            monthResult.innerHTML = monthCount;
+        } else {
+            let interval = setInterval(() => {
+                monthCount++;
+                monthResult.innerHTML = monthCount;
+                if (monthCount == monthDifference) {
+                    clearInterval(interval);
+                }
+            }, 100);
+        }
+    };
+
+    const displayAgeDay = () => {
+        let dayCount = 0;
+        if (dayDifference == 0) {
+            dayResult.innerHTML = dayCount;
+        } else {
+            let interval = setInterval(() => {
+                dayCount++;
+                dayResult.innerHTML = dayCount;
+                if (dayCount == dayDifference) {
+                    clearInterval(interval);
+                }
+            }, 50);
+        }
+    };
+
+    displayAgeYear();
+    displayAgeMonth();
+    displayAgeDay();
 };
 
 form.addEventListener("submit", (e) => {
