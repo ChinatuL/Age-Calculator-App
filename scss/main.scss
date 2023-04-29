@@ -24,6 +24,7 @@ body {
         padding-bottom: 3rem;
         border-bottom: 1px solid $light-grey;
 
+
         &-group {
             @include flex(column);
         }
@@ -35,6 +36,10 @@ body {
             font-weight: 700;
             letter-spacing: 0.2rem;
             color: $smokey-grey;
+        }
+
+        .label-error {
+            color: $light-red;
         }
 
         &-input {
@@ -64,6 +69,15 @@ body {
             margin: 0;
         }
 
+        .input-error,
+        .input-error:focus {
+            border: 1px solid $light-red;
+        }
+
+        .show-form-error {
+            display: block;
+        }
+
         &-btn {
             position: absolute;
             right: 0;
@@ -86,12 +100,22 @@ body {
             }
         }
 
-        &-error {
+        &-error,
+        &-error2 {
             display: none;
             font-size: 0.8rem;
             font-weight: 400;
             font-style: italic;
             color: $light-red;
+        }
+
+        &-error2 {
+            position: absolute;
+            bottom: 1.5rem;
+        }
+
+        .show-error {
+            display: block;
         }
     }
 
@@ -151,7 +175,6 @@ body {
         padding: 4rem 1.5rem;
 
         &__form {
-
             &-input {
                 width: 5.5rem;
                 padding: 1rem 0 1rem 1rem;
