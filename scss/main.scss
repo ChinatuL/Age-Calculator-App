@@ -23,9 +23,9 @@ body {
 }
 
 .calculator {
+    border-radius: 1.5rem 1.5rem 10rem 1.5rem;
     padding: 4rem 3rem;
     background-color: $white;
-    border-radius: 1.5rem 1.5rem 10rem 1.5rem;
 
     &__form {
         position: relative;
@@ -43,11 +43,11 @@ body {
 
         &-label {
             margin-bottom: 0.5rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.2rem;
             color: $smokey-grey;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
         }
 
         .label-error {
@@ -59,8 +59,8 @@ body {
             border-radius: 0.5rem;
             padding: 0.5rem 1.2rem;
             width: 9.5rem;
-            font: 700 2rem "Poppins", sans-serif;
             color: $off-black;
+            font: 700 2rem "Poppins", sans-serif;
             cursor: pointer;
         }
 
@@ -97,8 +97,8 @@ body {
             width: 6rem;
             height: 6rem;
             border: none;
-            background-color: $purple;
             border-radius: 50%;
+            background-color: $purple;
             transition: all 0.3s ease-in-out;
             cursor: pointer;
 
@@ -115,10 +115,10 @@ body {
         &-error,
         &-error2 {
             display: none;
+            color: $light-red;
             font-size: 0.8rem;
             font-weight: 400;
             font-style: italic;
-            color: $light-red;
         }
 
         &-error2 {
@@ -157,8 +157,8 @@ body {
             gap: 1rem;
 
             &-input {
-                padding: 1rem;
                 width: 7rem;
+                padding: 1rem;
                 font-size: 1.5rem;
 
                 &::placeholder {

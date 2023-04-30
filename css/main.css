@@ -36,9 +36,9 @@ body {
 }
 
 .calculator {
+  border-radius: 1.5rem 1.5rem 10rem 1.5rem;
   padding: 4rem 3rem;
   background-color: hsl(0, 0%, 100%);
-  border-radius: 1.5rem 1.5rem 10rem 1.5rem;
 }
 .calculator__form {
   position: relative;
@@ -56,11 +56,11 @@ body {
 }
 .calculator__form-label {
   margin-bottom: 0.5rem;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.2rem;
   color: hsl(0, 1%, 44%);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
 }
 .calculator__form .label-error {
   color: hsl(0, 100%, 67%);
@@ -70,8 +70,8 @@ body {
   border-radius: 0.5rem;
   padding: 0.5rem 1.2rem;
   width: 9.5rem;
-  font: 700 2rem "Poppins", sans-serif;
   color: hsl(0, 0%, 8%);
+  font: 700 2rem "Poppins", sans-serif;
   cursor: pointer;
 }
 .calculator__form-input::-moz-placeholder {
@@ -105,8 +105,8 @@ body {
   width: 6rem;
   height: 6rem;
   border: none;
-  background-color: hsl(259, 100%, 65%);
   border-radius: 50%;
+  background-color: hsl(259, 100%, 65%);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -119,10 +119,10 @@ body {
 }
 .calculator__form-error, .calculator__form-error2 {
   display: none;
+  color: hsl(0, 100%, 67%);
   font-size: 0.8rem;
   font-weight: 400;
   font-style: italic;
-  color: hsl(0, 100%, 67%);
 }
 .calculator__form-error2 {
   position: absolute;
@@ -154,8 +154,8 @@ body {
     gap: 1rem;
   }
   .calculator__form-input {
-    padding: 1rem;
     width: 7rem;
+    padding: 1rem;
     font-size: 1.5rem;
   }
   .calculator__form-input::-moz-placeholder {

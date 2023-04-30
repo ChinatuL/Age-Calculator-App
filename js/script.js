@@ -1,7 +1,5 @@
 const form = document.getElementById("form");
 const formError = document.getElementById("error-form");
-const formInputs = document.querySelectorAll(".calculator__form-input");
-const formLabels = document.querySelectorAll(".calculator__form-label");
 const dayInput = document.getElementById("day");
 const monthInput = document.getElementById("month");
 const yearInput = document.getElementById("year");
@@ -113,10 +111,13 @@ const calculateAge = () => {
     const age = new Date(year, month - 1, day);
     const birthDate = dayjs(age);
 
+    // calculate year difference
     const yearDifference = now.diff(birthDate, "year");
 
+    // calculate month difference
     const monthDifference = now.diff(birthDate, "month") - 12 * yearDifference;
 
+    // calculate day difference
     let dayDifference = 0;
     if (day <= now.date()) {
         dayDifference = now.date() - day;
@@ -171,6 +172,7 @@ const calculateAge = () => {
     displayAgeDay();
 };
 
+// validate form, calculate age and display result on form submit
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     const dayRequired = isDayRequired();
